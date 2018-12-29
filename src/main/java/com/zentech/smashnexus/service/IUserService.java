@@ -1,9 +1,11 @@
 package com.zentech.smashnexus.service;
 
-import com.zentech.smashnexus.model.UserDetail;
+import com.zentech.smashnexus.model.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface IUserService {
+public interface IUserService extends UserDetailsService {
 
-    UserDetail saveUser(UserDetail userDetail);
-    UserDetail getUserWithId(Long userId);
+    User saveUser(User user);
+    User getUserWithId(String userId);
+    User loadUserByUsername(String s);
 }

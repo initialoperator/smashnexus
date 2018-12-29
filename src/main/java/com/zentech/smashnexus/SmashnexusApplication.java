@@ -3,6 +3,8 @@ package com.zentech.smashnexus;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -14,10 +16,16 @@ public class SmashnexusApplication {
     }
 
 
+//    @Bean
+//    public PasswordEncoder myEncoder(){
+//        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+//        return encoder;
+//    }
+
     @Bean
-    public PasswordEncoder myEncoder(){
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        return encoder;
+    public BCryptPasswordEncoder safeEncoder(){
+        return new BCryptPasswordEncoder();
     }
+
 }
 

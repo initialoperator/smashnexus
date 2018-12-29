@@ -1,8 +1,9 @@
 package com.zentech.smashnexus.controller;
 
-import com.zentech.smashnexus.model.UserDetail;
+import com.zentech.smashnexus.model.User;
 import com.zentech.smashnexus.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,16 +12,20 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private PasswordEncoder encoder;
+
     @RequestMapping(value = "/getUserById/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public UserDetail getUserById(@PathVariable Long id){
+    public User getUserById(@PathVariable String id){
         return this.userService.getUserWithId(id);
     }
 
-    @RequestMapping(value="/saveUser", method = RequestMethod.POST)
+    @RequestMapping(value="/registerUser", method = RequestMethod.POST)
     @ResponseBody
-    public String saveUser(@RequestBody UserDetail userDetail){
-        this.userService.saveUser(userDetail);
+    public String registeruser(@RequestBody User user){
+        String user1Encoded = this.encoder.encode("user1");
+        User result = this.userService.saveUser(user);
         return "Good!";
     }
 }
