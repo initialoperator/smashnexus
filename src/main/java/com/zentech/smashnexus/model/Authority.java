@@ -1,7 +1,6 @@
 package com.zentech.smashnexus.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.security.core.GrantedAuthority;
 
 import java.util.List;
 //this class is obsolete

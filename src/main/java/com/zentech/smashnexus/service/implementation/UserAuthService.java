@@ -2,14 +2,14 @@ package com.zentech.smashnexus.service.implementation;
 
 import com.zentech.smashnexus.model.User;
 import com.zentech.smashnexus.repository.UserAuthRepository;
-import com.zentech.smashnexus.service.IUserService;
+import com.zentech.smashnexus.service.IUserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService implements IUserService {
+public class UserAuthService implements IUserAuthService {
 
     @Autowired
     private UserAuthRepository userAuthRepository;

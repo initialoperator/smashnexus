@@ -1,7 +1,7 @@
 package com.zentech.smashnexus.controller;
 
 import com.zentech.smashnexus.model.User;
-import com.zentech.smashnexus.service.IUserService;
+import com.zentech.smashnexus.service.IUserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private IUserService userService;
+    private IUserAuthService userService;
 
     @Autowired
     private PasswordEncoder encoder;
